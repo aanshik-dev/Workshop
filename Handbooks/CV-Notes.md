@@ -86,6 +86,9 @@ cv2.destroyAllWindows()
 | `cv2.waitKey()`           | wait for key press |
 | `cv2.destroyAllWindows()` | close windows      |
 
+waitKey(0) → Wait for any key to be pressed
+waitKey(1000) → Wait for 1 second
+
 <br>
 
 ## 🐦‍🔥 Accessing Image Properties
@@ -167,7 +170,7 @@ cv2.FONT_HERSHEY_SIMPLEX,
 ⚡ Parameters:
 `image, text, origin, font, scale, color, thickness`
 
-Fonts: 
+Fonts:
 
 - `cv2.FONT_HERSHEY_SIMPLEX`
 - `cv2.FONT_HERSHEY_PLAIN`
@@ -178,65 +181,94 @@ Fonts:
 - `cv2.FONT_HERSHEY_SCRIPT_SIMPLEX`
 - `cv2.FONT_HERSHEY_SCRIPT_COMPLEX`
 
+Scale can be any number including fractions.
+
 <br>
 
 ## 🐦‍🔥 Capturing Video from Webcam
 
 This is the most important part which is used in most of the projects.
 
-Demo Code 3
+```py
 import cv2
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0) # 0 for default camera
 
 while True:
-ret, frame = cap.read()
+  status, frame = cap.read()
 
-    cv2.imshow("Webcam", frame)
+  cv2.imshow("Webcam", frame)
+  if cv2.waitKey(1) == ord('q'):
+    break
+    # press q to quit
+    # waitKey(1) = 1 ms
+    # ord('q') = 113
 
-    if cv2.waitKey(1) == ord('q'):
-        break
-
-cap.release()
+cap.release() # close camera
 cv2.destroyAllWindows()
+```
 
-Explanation:
+⚡ Explanation:
 
-Code Meaning
-VideoCapture(0) open webcam
-cap.read() capture frame
-frame image from camera
-while True continuous video
-8️⃣ Flipping Camera
+- `VideoCapture(0)` open default webcam
+- Loop infinitely to capture video
+- `cap.read()` capture frame from camera, returns status & frame
+- `status` is true if frame is captured
+- `frame` is a 3D Numpy array
+- `cv2.imshow()` display frame
+- `cv2.waitKey(1)` wait for key press for 1 ms
+- `ord('q')` = 113 = q key
 
-Often webcams are mirrored.
+<br>
 
+## 🐦‍🔥 Flipping Camera
+
+Often webcams are mirrored, this is how to fix it.
+
+```py
 frame = cv2.flip(frame,1)
+```
 
 Flip types:
-
-Value Meaning
-0 vertical
-1 horizontal
--1 both
-
-Your project uses:
+`0` : vertical
+`1` : horizontal
+`-1` : both
 
 image = cv2.flip(image, 1)
-9️⃣ Color Conversion
+
+<br>
+
+## 🐦‍🔥 Color Conversion
 
 OpenCV uses BGR but many ML models use RGB.
 
-Convert using:
-
+```py
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+```
 
-Your project uses this because MediaPipe requires RGB.
+| Conversion  | Code                  |
+| ----------- | --------------------- |
+| BGR → Gray  | `cv2.COLOR_BGR2GRAY`  |
+| Gray → BGR  | `cv2.COLOR_GRAY2BGR`  |
+| BGR → RGB   | `cv2.COLOR_BGR2RGB`   |
+| RGB → BGR   | `cv2.COLOR_RGB2BGR`   |
+| BGR → HSV   | `cv2.COLOR_BGR2HSV`   |
+| HSV → BGR   | `cv2.COLOR_HSV2BGR`   |
+| BGR → LAB   | `cv2.COLOR_BGR2LAB`   |
+| BGR → YCrCb | `cv2.COLOR_BGR2YCrCb` |
+
+
+
+MediaPipe requires RGB, so we need to convert.
 
 OpenCV → BGR
 MediaPipe → RGB
-🔟 Drawing Graphics on Video
-Demo Code 4
+
+<br>
+
+## 🐦‍🔥 Drawing Graphics on Video
+
+```py
 import cv2
 
 cap = cv2.VideoCapture(0)
@@ -255,6 +287,7 @@ ret, frame = cap.read()
 
 cap.release()
 cv2.destroyAllWindows()
+```
 
 This is similar to your project:
 
