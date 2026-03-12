@@ -27,10 +27,13 @@ Projects use OpenCV to:
 - Display the result
 
 ### 🔥 Installing OpenCV
+
 ```bash
 pip install opencv-python
 ```
+
 ⚡ Test installation:
+
 ```py
 import cv2
 print(cv2.**version**)
@@ -38,22 +41,21 @@ print(cv2.**version**)
 
 <br>
 
-## 🐦‍🔥  How Images Work in OpenCV
+## 🐦‍🔥 How Images Work in OpenCV
 
 An image is just a matrix of pixels.
 
 - Example:
-`Image` = 720 x 1080 pixels
-Each pixel contains 3 values:
-`[B, G, R]`
+  `Image` = 720 x 1080 pixels
+  Each pixel contains 3 values:
+  `[B, G, R]`
 
 - Pixel Example:
-[255,0,0] → Blue
-[0,255,0] → Green
-[0,0,255] → Red
+  [255,0,0] → Blue
+  [0,255,0] → Green
+  [0,0,255] → Red
 
 > 📝 NOTE : OpenCV uses BGR instead of RGB.
-
 
 <br>
 
@@ -84,9 +86,9 @@ cv2.destroyAllWindows()
 | `cv2.waitKey()`           | wait for key press |
 | `cv2.destroyAllWindows()` | close windows      |
 
+<br>
 
-
-5️⃣ Accessing Image Properties
+## 🐦‍🔥 Accessing Image Properties
 
 ```py
 import cv2
@@ -98,20 +100,27 @@ print("Height:", img.shape[0])
 print("Width:", img.shape[1])
 print("Channels:", img.shape[2])
 ```
-Example output:
+
+⚡ Example output:
 
 Shape: (720,1080,3)
 
-Meaning:
+- Meaning:
+  720 → height
+  1080 → width
+  3 → color channels (BGR)
 
-720 → height
-1080 → width
-3 → color channels
-6️⃣ Drawing Shapes on Image
+> 📝 NOTE : The image object created is a 3D Numpy Array
 
-OpenCV allows drawing graphics.
+<br>
 
-Draw Line
+## 🐦‍🔥 Drawing Shapes on Image
+
+OpenCV allows drawing graphics on images for marking and visualizing the image.
+
+### 🔥 Draw Line
+
+```py
 import cv2
 
 img = cv2.imread("image.jpg")
@@ -120,28 +129,60 @@ cv2.line(img,(0,0),(300,300),(255,0,0),5)
 
 cv2.imshow("Line",img)
 cv2.waitKey(0)
+```
 
-Parameters:
+⚡ Parameters:
+`image, start_point, end_point, color, thickness`
 
-(start point)
-(end point)
-(color)
-(thickness)
-Draw Rectangle
+### 🔥 Draw Rectangle
+
+```py
 cv2.rectangle(img,(100,100),(400,300),(0,255,0),3)
-Draw Circle
+```
+
+⚡ Parameters:
+`image, top_left, bottom_right, color, thickness`
+thickness = -1 for filled
+
+### 🔥 Draw Circle
+
+```
 cv2.circle(img,(200,200),50,(0,0,255),-1)
--1 → filled circle
-Add Text
+```
+
+⚡ Parameters:
+`image, center, radius, color, thickness`
+
+### 🔥 Write Text
+
+```py
 cv2.putText(img,
 "Hello OpenCV",
 (50,50),
 cv2.FONT_HERSHEY_SIMPLEX,
 1,
 (255,255,255), 2)
-7️⃣ Capturing Video from Webcam
+```
 
-This is the most important part for your project.
+⚡ Parameters:
+`image, text, origin, font, scale, color, thickness`
+
+Fonts: 
+
+- `cv2.FONT_HERSHEY_SIMPLEX`
+- `cv2.FONT_HERSHEY_PLAIN`
+- `cv2.FONT_HERSHEY_DUPLEX`
+- `cv2.FONT_HERSHEY_COMPLEX`
+- `cv2.FONT_HERSHEY_TRIPLEX`
+- `cv2.FONT_HERSHEY_COMPLEX_SMALL`
+- `cv2.FONT_HERSHEY_SCRIPT_SIMPLEX`
+- `cv2.FONT_HERSHEY_SCRIPT_COMPLEX`
+
+<br>
+
+## 🐦‍🔥 Capturing Video from Webcam
+
+This is the most important part which is used in most of the projects.
 
 Demo Code 3
 import cv2

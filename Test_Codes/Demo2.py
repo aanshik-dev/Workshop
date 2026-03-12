@@ -9,5 +9,5 @@ print("Width:", img.shape[1])
 print("Channels:", img.shape[2])
 
 # print(img)
-print(type(img))
+# print(type(img))
 
