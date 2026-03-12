@@ -297,91 +297,28 @@ cv2.destroyAllWindows()
 
 <br>
 
-## 🐦‍🔥  Frame Processing Concept
+## 🐦‍🔥 Frame Processing Concept
 
 Camera → Frames → Process Frame → Show Frame
 
 Example flow:
 
-Webcam
-↓
-Frame captured
-↓
-OpenCV modifies frame
-↓
-MediaPipe detects hand
-↓
-Servo angles calculated
-↓
-Frame displayed
-
- Demo Before MediaPipe (Recommended)
-
-Show this before hand tracking.
-
-Demo Code 5 – Simple Motion Demo
-
-```py
-import cv2
-cap = cv2.VideoCapture(0)
-
-while True:
-ret, frame = cap.read()
-
-    h,w,c = frame.shape
-    cv2.circle(frame,(w//2,h//2),50,(0,255,0),3)
-    cv2.putText(frame,"OpenCV Demo",
-                (50,50),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                1,
-                (255,255,255),
-                2)
-
-    cv2.imshow("OpenCV Camera",frame)
-    if cv2.waitKey(1) == ord('q'):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
 ```
-This teaches:
-
-frame dimensions
-drawing shapes
-text overlay
-real-time processing
-
-1️⃣4️⃣ How This Connects to Your Final Project
-
-Explain this transition:
-
-OpenCV → Camera frames
-↓
-MediaPipe → Detect hand landmarks
-↓
-Math → calculate finger angles
-↓
-PyFirmata → send servo signal
-↓
-Arduino → move robotic hand
-1️⃣5️⃣ Simple Visual Pipeline for Students
-
-Show them this diagram:
-
 Camera
-│
+↓
 OpenCV
-│
+↓
 Frame Processing
-│
+↓
 MediaPipe Hand Detection
-│
+↓
 Finger Angle Calculation
-│
+↓
 Servo Angle Mapping
-│
+↓
 Arduino Control
-│
+↓
 Robotic Hand Movement
+```
 
 <br>
