@@ -246,6 +246,11 @@ OpenCV uses BGR but many ML models use RGB.
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 ```
 
+MediaPipe requires RGB, so we need to convert.
+
+OpenCV → BGR
+MediaPipe → RGB
+
 | Conversion  | Code                  |
 | ----------- | --------------------- |
 | BGR → Gray  | `cv2.COLOR_BGR2GRAY`  |
@@ -257,12 +262,13 @@ img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 | BGR → LAB   | `cv2.COLOR_BGR2LAB`   |
 | BGR → YCrCb | `cv2.COLOR_BGR2YCrCb` |
 
+⚡ To convert to negative image
 
+```py
+negative = 255 - img
+```
 
-MediaPipe requires RGB, so we need to convert.
-
-OpenCV → BGR
-MediaPipe → RGB
+This subtract each pixel value from 255 of the original 3D image array
 
 <br>
 
@@ -275,7 +281,7 @@ cap = cv2.VideoCapture(0)
 
 while True:
 ret, frame = cap.read()
-
+    #Creating a UI panel on the frame
     cv2.rectangle(frame,(50,50),(300,200),(0,255,0),3)
     cv2.putText(frame,"Camera Active",(60,90),
                 cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,255),2)
@@ -289,15 +295,9 @@ cap.release()
 cv2.destroyAllWindows()
 ```
 
-This is similar to your project:
+<br>
 
-cv2.rectangle(image, (10, 10), (450, 125), (0, 255, 200), cv2.FILLED)
-
-It creates a UI panel on the video.
-
-1️⃣1️⃣ Frame Processing Concept
-
-Important concept to explain to juniors:
+## 🐦‍🔥  Frame Processing Concept
 
 Camera → Frames → Process Frame → Show Frame
 
@@ -314,36 +314,22 @@ MediaPipe detects hand
 Servo angles calculated
 ↓
 Frame displayed
-1️⃣2️⃣ Why OpenCV is Needed in Your Project
 
-OpenCV handles:
-
-✔ camera input
-✔ image processing
-✔ drawing landmarks
-✔ displaying results
-
-Without OpenCV:
-
-No camera feed
-No drawing
-No video processing
-1️⃣3️⃣ Demo Before MediaPipe (Recommended)
+ Demo Before MediaPipe (Recommended)
 
 Show this before hand tracking.
 
 Demo Code 5 – Simple Motion Demo
-import cv2
 
+```py
+import cv2
 cap = cv2.VideoCapture(0)
 
 while True:
 ret, frame = cap.read()
 
     h,w,c = frame.shape
-
     cv2.circle(frame,(w//2,h//2),50,(0,255,0),3)
-
     cv2.putText(frame,"OpenCV Demo",
                 (50,50),
                 cv2.FONT_HERSHEY_SIMPLEX,
@@ -352,21 +338,17 @@ ret, frame = cap.read()
                 2)
 
     cv2.imshow("OpenCV Camera",frame)
-
     if cv2.waitKey(1) == ord('q'):
         break
 
 cap.release()
 cv2.destroyAllWindows()
-
+```
 This teaches:
 
 frame dimensions
-
 drawing shapes
-
 text overlay
-
 real-time processing
 
 1️⃣4️⃣ How This Connects to Your Final Project
@@ -401,18 +383,5 @@ Servo Angle Mapping
 Arduino Control
 │
 Robotic Hand Movement
-⭐ Good 30-Minute Teaching Flow
-
-1️⃣ Intro to OpenCV (5 min)
-2️⃣ Image basics (5 min)
-3️⃣ Display image demo (5 min)
-4️⃣ Webcam demo (10 min)
-5️⃣ Drawing shapes demo (5 min)
-
-Then next session:
-
-OpenCV + MediaPipe
-
-💡 If you want, I can also make a very clean 10-slide OpenCV PPT structure specifically tailored for your robotic hand project demo, which will make the session look much more professional.
 
 <br>
