@@ -15,8 +15,6 @@ The goal of this repository is to help beginners learn computer vision concepts 
 
 ---
 
-<br>
-
 ## 🐦‍🔥 Contents
 
 This repository includes:
@@ -36,8 +34,6 @@ Topics covered:
 
 ---
 
-<br>
-
 ## 🐦‍🔥 Technologies Used
 
 - **Python**
@@ -46,8 +42,6 @@ Topics covered:
 - **NumPy**
 
 ---
-
-<br>
 
 ## 🐦‍🔥 Installation
 
@@ -65,8 +59,6 @@ pip install opencv-python mediapipe numpy
 ```
 
 ---
-
-<br>
 
 ## ▶️ Running the Examples
 
@@ -106,8 +98,6 @@ Workshop/
 
 ---
 
-<br>
-
 ## 🐦‍🔥 Who This Is For
 
 This repository is ideal for:
@@ -116,8 +106,6 @@ This repository is ideal for:
 - Students exploring **Computer Vision**
 - Developers interested in **MediaPipe**
 - Anyone wanting to build **gesture-based applications**
-
-<br>
 
 ## 🐦‍🔥 Learning Structure
 
@@ -130,8 +118,6 @@ MediaPipe
 ```
 
 ---
-
-<br>
 
 ## 🐦‍🔥 Contributing
 
