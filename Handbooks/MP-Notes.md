@@ -23,6 +23,13 @@ Instead of training AI models from scratch, MediaPipe gives pre-trained pipeline
 
 The gesture controlled robotic hand project uses MediaPipe Hands to detect 21 hand landmarks.
 
+### 🔥 We will use the mediapipe in our project for:
+
+✔ real-time hand detection
+✔ finger landmarks
+✔ hand skeleton
+✔ depth estimation
+
 ### 🔥 Installing MediaPipe
 
 ```bash
@@ -113,7 +120,7 @@ cap = cv2.VideoCapture(0)
 
 with mp_hands.Hands() as hands:
 
-    while True:
+    while cap.isOpened():
         status, frame = cap.read()
         # convert BGR to RGB
         rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -123,6 +130,7 @@ with mp_hands.Hands() as hands:
 
         # check if hands are detected
         if results.multi_hand_landmarks:
+            print(results.multi_hand_landmarks)
 
             for hand_landmarks in results.multi_hand_landmarks:
                 # draw landmarks
@@ -138,6 +146,7 @@ with mp_hands.Hands() as hands:
             break
 cap.release()
 cv2.destroyAllWindows()
+
 ```
 
 You should see hand skeleton tracking in real time on your webcam.
@@ -145,8 +154,6 @@ You should see hand skeleton tracking in real time on your webcam.
 <br>
 
 ## 🐦‍🔥 Important MediaPipe Parameters
-
-In your project you used:
 
 ```py
 mp_hands.Hands(
@@ -172,25 +179,70 @@ detects both hands.
 
 ## 🐦‍🔥 Getting Landmark Coordinates
 
-Each landmark has: `x`,`y`,`z` coordinates
+Steps involved:
 
-Example:
+⚡ Passing image to the model and getting output:
 
 ```py
-for lm in hand_landmarks.landmark:
-  print(lm.x, lm.y, lm.z)
+results = hands.process(frame)
+# returns an object containing all the detection data
 ```
 
-Meaning:
+```bash
+results  # Result Object
+│
+├── multi_hand_landmarks # collection of hands
+│        │
+│        ├── Hand_Landmarks 1  # Hand 1
+│        │      └── 21 landmarks  # 21 points
+│        │
+│        ├── Hand_Landmarks 2
+│        │      └── 21 landmarks
+│        │
+│        └── Hand_Landmarks 3 (if visible)
+│               └── 21 landmarks
+│
+├── multi_handedness
+│      └── Left / Right classification
+│
+└── multi_hand_world_landmarks
+       └── 3D coordinates
+```
 
-| Value | Meaning             |
-| ----- | ------------------- |
-| x     | horizontal position |
-| y     | vertical position   |
-| z     | depth               |
+⚡ Accessing each hand detected:
 
-Coordinates are normalized, between 0 and 1.
-To convert to pixels:
+```py
+for hand_landmarks in results.multi_hand_landmarks:
+# for each hand detected
+```
+
+⚡ Drawing landmarks:
+
+```py
+mp_draw.draw_landmarks(
+          frame,
+          hand_landmarks,
+          mp_hands.HAND_CONNECTIONS
+        )  # draw skeleton, takes entire hand_landmarks array of 21 points, draws lines between them
+```
+
+⚡ Accessing all 21 landmarks:
+
+```py
+for idx, lm in enumerate(hand_landmarks.landmark):
+    h, w, c = frame.shape
+    x, y, z = int(lm.x*w), int(lm.y*h), int(lm.z*w)
+    print(id, x, y, z)
+```
+
+- Each landmark has: `x`,`y`,`z` coordinates
+  | Value | Meaning |
+  | ----- | ------------------- |
+  | x | horizontal position |
+  | y | vertical position |
+  | z | depth |
+
+- Coordinates are normalized between 0 and 1, so convert to pixels:
 
 ```py
 h, w, c = frame.shape
@@ -199,149 +251,66 @@ x = int(lm.x * w)
 y = int(lm.y * h)
 ```
 
+> 📝 NOTE : The Z coordinate provides depth, if point is near the screen then it is negative and if away then positive
+
 <br>
 
 ## 🐦‍🔥 Print Landmark Positions
 
+```py
 import cv2
 import mediapipe as mp
 
-mp_hands = mp.solutions.hands
-
-cap = cv2.VideoCapture(0)
-
-with mp_hands.Hands() as hands:
-
-    while True:
-        ret, frame = cap.read()
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
-        results = hands.process(rgb)
-
-        if results.multi_hand_landmarks:
-
-            for hand_landmarks in results.multi_hand_landmarks:
-
-                for id, lm in enumerate(hand_landmarks.landmark):
-
-                    h, w, c = frame.shape
-                    x, y = int(lm.x*w), int(lm.y*h)
-
-                    print(id, x, y)
-
-        cv2.imshow("Hand", frame)
-
-        if cv2.waitKey(1) == ord('q'):
-            break
-
-Students will see landmark coordinates printing in terminal.
-
-9️⃣ Highlight Finger Tips
-
-Useful demonstration before robotics.
-
-Demo Code 3
-import cv2
-import mediapipe as mp
-
+# mediapipe setup
 mp_hands = mp.solutions.hands
 mp_draw = mp.solutions.drawing_utils
 
-tips = [4,8,12,16,20]
-
+# default webcam
 cap = cv2.VideoCapture(0)
 
+# Hand detection
 with mp_hands.Hands() as hands:
 
-    while True:
+  while cap.isOpened():
+    status, frame = cap.read() # read frame
+    rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) # BGR to RGB
 
-        ret, frame = cap.read()
-        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    results = hands.process(rgb) # calling mediapipe
 
-        results = hands.process(rgb)
+    if results.multi_hand_landmarks: # check if hands are detected
 
-        if results.multi_hand_landmarks:
+      # for each hand detedcted
+      for hand_landmarks in results.multi_hand_landmarks:
+        # draw landmarks
+        mp_draw.draw_landmarks(
+                frame,
+                hand_landmarks, # passing array of 21 landmarks
+                mp_hands.HAND_CONNECTIONS
+        )
+        # for each landmark(x,y,z)
+        for idx, lm in enumerate(hand_landmarks.landmark):
+          h, w, c = frame.shape  # height, width, channels
+          x, y, z = int(lm.x*w), int(lm.y*h), int(lm.z*w)
+          print(f"[{idx}] = {x}, {y}, {z}")
 
-            for hand_landmarks in results.multi_hand_landmarks:
+    frame = cv2.flip(frame,1)  # flip frame
+    cv2.imshow("Hand", frame)
 
-                for id,lm in enumerate(hand_landmarks.landmark):
-
-                    h,w,c = frame.shape
-                    x,y = int(lm.x*w), int(lm.y*h)
-
-                    if id in tips:
-                        cv2.circle(frame,(x,y),10,(0,255,0),-1)
-
-                mp_draw.draw_landmarks(
-                    frame,
-                    hand_landmarks,
-                    mp_hands.HAND_CONNECTIONS
-                )
-
-        cv2.imshow("Finger Tips",frame)
-
-        if cv2.waitKey(1) == ord('q'):
+    if cv2.waitKey(1) == ord('q'):
             break
+cap.release()
+cv2.destroyAllWindows()
+```
 
-Students will see green dots on finger tips.
+<br>
 
-🔟 MediaPipe Output Structure
+## 🐦‍🔥 Highlight Finger Tips
 
-When a hand is detected:
+```py
+tips = [4,8,12,16,20]
 
-results
-├── multi_hand_landmarks
-│ └── 21 landmarks
-│
-└── multi_handedness
-└── left / right hand
-1️⃣1️⃣ Why MediaPipe is Used in Your Project
+if id in tips: # if tip then draw circle
+  cv2.circle(frame,(x,y),10,(0,255,0),-1)
+```
 
-MediaPipe provides:
-
-✔ real-time hand detection
-✔ finger landmarks
-✔ hand skeleton
-✔ depth estimation
-
-Your project uses these to compute:
-
-finger angles
-finger distances
-palm tilt
-
-Then send commands to Arduino servos.
-
-1️⃣2️⃣ Bridge to Your Robotic Hand Code
-
-Explain to juniors:
-
-MediaPipe → detects hand landmarks
-↓
-Python math → calculate finger angles
-↓
-Servo angles (0–180)
-↓
-PyFirmata → Arduino
-↓
-Robot hand moves
-⭐ Best Classroom Demo Order
-
-Teach in this order:
-
-1️⃣ OpenCV webcam
-2️⃣ MediaPipe hand detection
-3️⃣ Landmark coordinates
-4️⃣ Finger tip detection
-5️⃣ Finger angle calculation
-6️⃣ Servo control
-
-💡 If you want, I can also give you one very powerful demo (only ~80 lines) that shows:
-
-hand detection
-
-finger counting
-
-gesture recognition
-
-which looks super impressive in workshops and helps students understand MediaPipe before your robotic hand code.
+This is used more often to highlight the finger tips.
