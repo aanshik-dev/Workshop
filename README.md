@@ -80,7 +80,7 @@ Make sure your **webcam is enabled**, as most demos use real-time video.
 
 ---
 
-# ✋ Example Features
+## ✋ Example Features
 
 Some of the things you can build with this repository:
 
@@ -92,7 +92,7 @@ Some of the things you can build with this repository:
 
 ---
 
-# 📁 Repository Structure
+## 📁 Repository Structure
 
 ```
 Workshop/
@@ -151,7 +151,7 @@ If you found this repository useful, consider **starring ⭐ the repo** to suppo
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Aanshik-dev**
 
@@ -160,6 +160,6 @@ Portfolio: https://aanshik-dev.vercel.app
 
 ---
 
-# 📜 License
+## 📜 License
 
 This project is open-source and available under the **MIT License**.
