@@ -141,8 +141,8 @@ If you found this repository useful, consider **starring ⭐ the repo** to suppo
 
 **Aanshik-dev**
 
-GitHub: https://github.com/aanshik-dev
-Portfolio: https://aanshik-dev.vercel.app
+- GitHub: https://github.com/aanshik-dev
+- Portfolio: https://aanshik-dev.vercel.app
 
 ---
 
