@@ -3,7 +3,7 @@
 
 # 🐦‍🔥🔥 **OPEN-CV Notes** 🔥🐦‍🔥
 
-- By Aanshik-dev
+- By [Aanshik-dev](https://aanshik-dev.vercel.app/)
 
 <br>
 
@@ -36,7 +36,7 @@ pip install opencv-python
 
 ```py
 import cv2
-print(cv2.**version**)
+print(cv2.__version__)
 ```
 
 <br>
