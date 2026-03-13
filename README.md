@@ -1,44 +1,55 @@
-# 🚀 Python, MediaPipe & OpenCV Workshop
+<div style= "width: 100%; background-image: linear-gradient(90deg,rgb(20, 0, 36),rgb(31, 0, 56),rgb(66, 13, 94)); background-size: contain;">
+<div style= "backdrop-filter: blur(15px) brightness(150%); padding: 25px" >
 
-This repository contains **handbooks, demo codes, and learning resources** for a hands-on workshop focused on:
+# 🐦‍🔥🔥 **Workshop Overview** 🔥🐦‍🔥
 
-* 🐍 Python Basics
-* 🎥 OpenCV for Computer Vision
-* ✋ MediaPipe for Hand Tracking & Gesture Recognition
+- By [Aanshik-dev](https://aanshik-dev.vercel.app/)
 
-The goal of this repository is to help beginners **learn computer vision concepts through practical examples and demos**.
+This repository contains handbooks, demo codes, and learning resources for a hands-on workshop focused on:
+
+- 🐍 Python Basics
+- 🎥 OpenCV for Computer Vision
+- ✋ MediaPipe for Hand Tracking & Gesture Recognition
+
+The goal of this repository is to help beginners learn computer vision concepts through practical examples and demos.
 
 ---
 
-# 📚 Contents
+<br>
+
+## 🐦‍🔥 Contents
 
 This repository includes:
 
-* 📖 **Handbooks / Learning Material**
-* 💻 **Demo Code Examples**
-* 🎯 **Practical Implementations**
-* 🧠 **Hands-on Computer Vision Projects**
+- 📖 **Handbooks / Learning Material**
+- 💻 **Demo Code Examples**
+- 🎯 **Practical Implementations**
+- 🧠 **Hands-on Computer Vision Projects**
 
 Topics covered:
 
-* Python fundamentals for computer vision
-* Working with images and video using OpenCV
-* Detecting hands using MediaPipe
-* Understanding hand landmarks
-* Building gesture-based applications
+- Python fundamentals for computer vision
+- Working with images and video using OpenCV
+- Detecting hands using MediaPipe
+- Understanding hand landmarks
+- Building gesture-based applications
 
 ---
 
-# 🧰 Technologies Used
+<br>
 
-* **Python**
-* **OpenCV**
-* **MediaPipe**
-* **NumPy**
+## 🐦‍🔥 Technologies Used
+
+- **Python**
+- **OpenCV**
+- **MediaPipe**
+- **NumPy**
 
 ---
 
-# ⚙️ Installation
+<br>
+
+## 🐦‍🔥 Installation
 
 ### 1️⃣ Clone the repository
 
@@ -55,18 +66,14 @@ pip install opencv-python mediapipe numpy
 
 ---
 
-# ▶️ Running the Examples
+<br>
+
+## ▶️ Running the Examples
 
 Run any demo script using Python:
 
 ```bash
-python filename.py
-```
-
-Example:
-
-```bash
-python hand_tracking.py
+python Demo.py
 ```
 
 Make sure your **webcam is enabled**, as most demos use real-time video.
@@ -77,11 +84,11 @@ Make sure your **webcam is enabled**, as most demos use real-time video.
 
 Some of the things you can build with this repository:
 
-* Hand landmark detection
-* Finger tracking
-* Gesture recognition
-* Computer vision applications
-* Real-time camera processing
+- Hand landmark detection
+- Finger tracking
+- Gesture recognition
+- Computer vision applications
+- Real-time camera processing
 
 ---
 
@@ -90,29 +97,45 @@ Some of the things you can build with this repository:
 ```
 Workshop/
 │
-├── handbooks/        # Learning materials
-├── demos/            # Demo code examples
-├── projects/         # Example projects
+├── Handbooks/          # Learning materials
+├── Mediapipe_Codes/    # MediaPipe demo codes
+├── OpenCV_Codes/       # OpenCV demo codes
+|── Servo_Sweep.c       # Servo sweep code
 └── README.md
 ```
 
 ---
 
-# 🎯 Who This Is For
+<br>
+
+## 🐦‍🔥 Who This Is For
 
 This repository is ideal for:
 
-* Beginners learning **Python**
-* Students exploring **Computer Vision**
-* Developers interested in **MediaPipe**
-* Anyone wanting to build **gesture-based applications**
+- Beginners learning **Python**
+- Students exploring **Computer Vision**
+- Developers interested in **MediaPipe**
+- Anyone wanting to build **gesture-based applications**
+
+<br>
+
+## 🐦‍🔥 Learning Structure
+
+```bash
+Python
+  ↓
+OpenCV / Computer Vision
+  ↓
+MediaPipe
+```
 
 ---
 
-# 🤝 Contributing
+<br>
+
+## 🐦‍🔥 Contributing
 
 Contributions are welcome!
-
 If you would like to improve this repository:
 
 1. Fork the repository
@@ -122,7 +145,7 @@ If you would like to improve this repository:
 
 ---
 
-# ⭐ Support
+### ⭐ Support
 
 If you found this repository useful, consider **starring ⭐ the repo** to support the project.
 
@@ -130,10 +153,10 @@ If you found this repository useful, consider **starring ⭐ the repo** to suppo
 
 # 👨‍💻 Author
 
-**Aanshik**
+**Aanshik-dev**
 
-GitHub:
-https://github.com/aanshik-dev
+GitHub: https://github.com/aanshik-dev
+Portfolio: https://aanshik-dev.vercel.app
 
 ---
 
