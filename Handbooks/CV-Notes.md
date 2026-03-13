@@ -61,14 +61,17 @@ An image is just a matrix of pixels.
 
 ## 🐦‍🔥 Reading and Displaying an Image
 
+⚡ D1_ImgShow.py
+
 ```py
 import cv2
 
 # read image
-img = cv2.imread("image.jpg")
+img = cv2.imread("Learning/Robotics/Test_Codes/image.png")
 
+img.flags.writeable = False # makes image read only
 # show image
-cv2.imshow("My Image", img)
+cv2.imshow("Kingfisher", img)
 
 # wait until key pressed
 cv2.waitKey(0)
@@ -92,6 +95,8 @@ waitKey(1000) → Wait for 1 second
 <br>
 
 ## 🐦‍🔥 Accessing Image Properties
+
+⚡ D2_ImgProp.py
 
 ```py
 import cv2
@@ -122,6 +127,8 @@ Shape: (720,1080,3)
 OpenCV allows drawing graphics on images for marking and visualizing the image.
 
 ### 🔥 Draw Line
+
+⚡ D3_ImgDraw.py
 
 ```py
 import cv2
@@ -189,6 +196,8 @@ Scale can be any number including fractions.
 
 This is the most important part which is used in most of the projects.
 
+⚡ D4_VidCapture.py
+
 ```py
 import cv2
 
@@ -242,6 +251,8 @@ image = cv2.flip(image, 1)
 
 OpenCV uses BGR but many ML models use RGB.
 
+⚡ D5_cvtColor.py
+
 ```py
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 ```
@@ -273,6 +284,8 @@ This subtract each pixel value from 255 of the original 3D image array
 <br>
 
 ## 🐦‍🔥 Drawing Graphics on Video
+
+⚡ D5_VidDraw.py
 
 ```py
 import cv2

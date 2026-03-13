@@ -107,6 +107,8 @@ These coordinates are used to calculate:
 
 ## 🐦‍🔥 Basic MediaPipe Hand Detection Code
 
+⚡ D1_HandMap.py
+
 ```py
 import cv2
 import mediapipe as mp
@@ -146,7 +148,6 @@ with mp_hands.Hands() as hands:
             break
 cap.release()
 cv2.destroyAllWindows()
-
 ```
 
 You should see hand skeleton tracking in real time on your webcam.
@@ -257,6 +258,8 @@ y = int(lm.y * h)
 
 ## 🐦‍🔥 Print Landmark Positions
 
+⚡ D2_Landmarks.py
+
 ```py
 import cv2
 import mediapipe as mp
@@ -305,6 +308,8 @@ cv2.destroyAllWindows()
 <br>
 
 ## 🐦‍🔥 Highlight Finger Tips
+
+⚡ D3_FingerTips.py
 
 ```py
 tips = [4,8,12,16,20]
