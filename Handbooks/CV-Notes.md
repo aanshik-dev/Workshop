@@ -67,7 +67,7 @@ An image is just a matrix of pixels.
 import cv2
 
 # read image
-img = cv2.imread("Learning/Robotics/Test_Codes/image.png")
+img = cv2.imread("Learning/Robotics/Test_Codes/image.png", 1)
 
 img.flags.writeable = False # makes image read only
 # show image
@@ -89,8 +89,10 @@ cv2.destroyAllWindows()
 | `cv2.waitKey()`           | wait for key press |
 | `cv2.destroyAllWindows()` | close windows      |
 
-waitKey(0) → Wait for any key to be pressed
-waitKey(1000) → Wait for 1 second
+cv2.imread("image.jpg", `1`) → Load image in color
+cv2.imread("image.jpg", `0`) → Load image in grayscale
+`waitKey(0)` → Wait for any key to be pressed
+`waitKey(1000)` → Wait for 1 second
 
 <br>
 

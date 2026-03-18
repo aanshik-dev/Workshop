@@ -25,18 +25,19 @@ while True:
 
     # Draw rectangle around each detected head
     for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 255, 0), 2)
 
     # Count total persons
     count = len(faces)
 
+    frame = cv2.flip(frame, 1)
     # Display count at top-left
     cv2.putText(frame,
                 f'Persons: {count}',
                 (10, 30),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 1,
-                (0, 255, 0),
+                (0, 0, 0),
                 2)
 
     # Show output

@@ -1,8 +1,6 @@
 import cv2
 # read image
 img = cv2.imread("Learning/Robotics/OpenCV_Codes/image.png", 0)
-# 1 for color and 0 for grayscale
-
 img.flags.writeable = False # makes image read only
 
 print(img.ndim)
