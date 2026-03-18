@@ -33,7 +33,9 @@ The gesture controlled robotic hand project uses MediaPipe Hands to detect 21 ha
 ### 🔥 Installing MediaPipe
 
 ```bash
+
 pip install mediapipe
+
 ```
 
 ⚡ Test installation:
