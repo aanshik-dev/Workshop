@@ -81,3 +81,29 @@ pip install mediapipe
 ```bash
 pip install screen_brightness_control
 ```
+
+### 🔥 Numpy
+
+```bash
+pip install numpy
+```
+
+### 🔥 PySerial
+
+⚡ Required for the project to communicate with the arduino
+
+```bash
+pip install pyserial
+```
+
+### 🔥 Pyfirmata
+
+```bash
+pip install pyfirmata2
+```
+
+The robotic arm uses the firmata instead of the serial communication
+
+- go to files > examples > firmata > standard firmata
+- upload the code to the arduino uno, (doesn't work for the esp32)
+- Run the Gesture_complete python script
