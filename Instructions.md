@@ -7,17 +7,31 @@
 
 ## 🐦‍🔥 Arduino Ide
 
-⚡ Requirement : Arduino IDE 1.8.19
+⚡ Latest : Arduino IDE 2.3.8
 
 ⚡ Installation:
 
-- Link: `https://www.arduino.cc/en/main/software`
-- Click on Windows Installer
-- Run the exe file
-- Click on last Checkbox: `Add Arduino IDE to PATH`
-- Click on Install Now
-- Open Terminal to varify installation
-- `arduino --version` // should return `1.8.19`
+- Link: `https://www.arduino.cc/en/software/`
+- Scroll to find the download button, and click on it
+- Run the downloaded exe file
+- Click on `Install`
+
+⚡ To support the ESP8266 and ESP32, install the following libraries:
+
+- Got to File > Preferences > Additional Boards Manager URLs
+- On the right side of the blank textbox, click on the button
+- Paste the following links in new line
+
+```bash
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+```
+
+⚡ Download ESP32 Board
+
+- Go to Boards Tab (2nd on left vertical pane)
+- Search for `esp32` by espressif and `Arduino ESP32 Boards` by Arduino
+- Click on `Install` to install both
 
 ## 🐦‍🔥 Python
 
@@ -57,6 +71,9 @@ pip install mediapipe
 
 ## 🐦‍🔥 Project Libraries
 
+- `numpy`
+- `screen_brightness_control`
+
 ### 🔥 screen_brightness_control
 
 ⚡ Required for the `Mediapipe_Codes/EX1_Brightness.py`
@@ -64,4 +81,3 @@ pip install mediapipe
 ```bash
 pip install screen_brightness_control
 ```
-
