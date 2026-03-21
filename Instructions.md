@@ -1,8 +1,9 @@
+<div style= "width: 100%; background-image: linear-gradient(90deg,rgb(20, 0, 36),rgb(31, 0, 56),rgb(66, 13, 94)); background-size: contain;">
+<div style= "backdrop-filter: blur(15px) brightness(150%); padding: 25px" >
+
 # 🐦‍🔥🔥 **Instructions** 🔥🐦‍🔥
 
 <br>
-
-## 🐦‍🔥 Python
 
 ## 🐦‍🔥 Arduino Ide
 
@@ -17,6 +18,8 @@
 - Click on Install Now
 - Open Terminal to varify installation
 - `arduino --version` // should return `1.8.19`
+
+## 🐦‍🔥 Python
 
 ⚡ Requirement : Python 3.11.0
 
@@ -49,3 +52,16 @@ pip install opencv-python
 ```bash
 pip install mediapipe
 ```
+
+<br>
+
+## 🐦‍🔥 Project Libraries
+
+### 🔥 screen_brightness_control
+
+⚡ Required for the `Mediapipe_Codes/EX1_Brightness.py`
+
+```bash
+pip install screen_brightness_control
+```
+

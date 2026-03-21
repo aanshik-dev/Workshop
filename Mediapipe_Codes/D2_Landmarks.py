@@ -23,9 +23,9 @@ with mp_hands.Hands() as hands:
       for hand_landmarks in results.multi_hand_landmarks:
         # draw landmarks
         mp_draw.draw_landmarks(
-                frame,
-                hand_landmarks, # passing array of 21 landmarks
-                mp_hands.HAND_CONNECTIONS
+          frame,
+          hand_landmarks, # passing array of 21 landmarks
+          mp_hands.HAND_CONNECTIONS
         )
         # for each landmark(x,y,z)
         for idx, lm in enumerate(hand_landmarks.landmark):

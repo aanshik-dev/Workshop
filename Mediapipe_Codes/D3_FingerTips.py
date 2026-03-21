@@ -31,7 +31,7 @@ with mp_hands.Hands() as hands:
                     hand_landmarks,
                     mp_hands.HAND_CONNECTIONS
                 )
-
+        frame = cv2.flip(frame,1)
         cv2.imshow("Finger Tips",frame)
         if cv2.waitKey(1) == ord('q'):
             break
