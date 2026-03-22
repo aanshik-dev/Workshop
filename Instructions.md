@@ -64,7 +64,7 @@ pip install opencv-python
 ⚡ Installation:
 
 ```bash
-pip install mediapipe
+pip install mediapipe==0.10.9
 ```
 
 <br>
