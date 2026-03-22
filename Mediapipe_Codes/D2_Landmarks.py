@@ -30,8 +30,8 @@ with mp_hands.Hands() as hands:
         # for each landmark(x,y,z)
         for idx, lm in enumerate(hand_landmarks.landmark):
           h, w, c = frame.shape  # height, width, channels
-          x, y, z = int(lm.x*w), int(lm.y*h), int(lm.z*w)  # x, y, z in px
-          print(f"[{idx}] = {x}, {y}, {z}")
+          x, y = int(lm.x*w), int(lm.y*h)  # x, y, z in px
+          print(f"[{idx}] = {x}, {y}")
 
     frame = cv2.flip(frame,1)  # flip frame
     cv2.imshow("Hand", frame)
