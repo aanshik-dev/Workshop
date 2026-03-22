@@ -11,7 +11,12 @@
 
 ⚡ Installation:
 
-- Link: `https://www.arduino.cc/en/software/`
+- Link:
+
+```bash
+https://www.arduino.cc/en/software/`
+```
+
 - Scroll to find the download button, and click on it
 - Run the downloaded exe file
 - Click on `Install`
@@ -39,7 +44,12 @@ https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32
 
 ⚡ Installation:
 
-- Link: `https://www.python.org/downloads/release/python-3110/`
+- Link:
+
+```bash
+https://www.python.org/downloads/release/python-3110/
+```
+
 - Click On Windows Installer
 - Run the exe file
 - Click on last Checkbox: `Add Python to PATH`

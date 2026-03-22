@@ -27,7 +27,7 @@ while True:
         if mode == 1:
             g = cv2.resize(glass, (w, int(h * 0.4)))
 
-            for i in range(g.shape[0]):
+            for i in range(g.shape[0]):  # hape[0] = height
                 for j in range(g.shape[1]):
                     if g[i, j][3] != 0:
                         if y + int(h * 0.25) + i < img.shape[0] and x + j < img.shape[1]:
