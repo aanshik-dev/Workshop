@@ -52,7 +52,6 @@ def angle_cal(a, b, c):
         return 180
 
 def ctrl_type(delta):
-    
     color = (130, 0, 255) if delta > 55 else (0, 180, 0)
     text = "DISTANCE OPERATED" if delta > 55 else "ANGLE OPERATED"
     cv2.circle(image, (40, 90), 15, color, cv2.FILLED)
