@@ -1,7 +1,7 @@
 import cv2
 
 # read image
-img = cv2.imread("Learning/Robotics/Test_Codes/image.png")
+img = cv2.imread("Learning/Robotics/OpenCV_Codes/image.png")
 
 print("Shape:", img.shape)      # (height, width, channels)
 print("Height:", img.shape[0])

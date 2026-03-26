@@ -1,6 +1,6 @@
 import cv2
 # read image
-img = cv2.imread("Learning/Robotics/OpenCV_Codes/image.png", 0)
+img = cv2.imread("Learning/Robotics/OpenCV_Codes/image.png", 1)
 img.flags.writeable = False # makes image read only
 
 print(img.ndim)
